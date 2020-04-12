@@ -18,7 +18,8 @@ void main() {
   array2.add(2);
 
   /*
-    Observação: Quando você simplesmente referencia uma variável, ela aponta para o mesmo espaço de memória
+    Observação: Quando você simplesmente referencia uma variável, 
+    ela aponta para o mesmo espaço de memória
     Ao alterar uma, altera a que estava apontando.
   */
   List old = [1];
