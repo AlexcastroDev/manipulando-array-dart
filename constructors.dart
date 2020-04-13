@@ -1,45 +1,43 @@
 void main() {
-  // Construtor normal
-  List array1 = [1, 2];
-  array1 = [2];
+  // Aqui é construido um List (ou array) de Strings.
+  List<int> array1 = new List<int>();
 
-  // Construtor Imutável
-  array1 = List.unmodifiable([1]);
-  array1.add(7);
+  // O construtor do list, permite usar vários métodos, um deles é o ADD;
+  array1.add(1);
+  array1.add(2);
+  array1.add(3);
 
-  /*
-    Observação: Claro que, se setar o array, ele vai mudar o valor.
-    Por que Setar uma nova lista, é diferente de alterar esta lista.
-  */
+  print(array1);
 
-  // construtores baseado em outro Array.
-  List old = [1];
-  List array2 = List.from(old);
-  array2.add(2);
+  // Array que não pode ser modificado
 
-  /*
-    Observação: Quando você simplesmente referencia uma variável, 
-    ela aponta para o mesmo espaço de memória
-    Ao alterar uma, altera a que estava apontando.
-  */
-  List old = [1];
-  List array3 = old;
+  List<int> array2 = List.unmodifiable([1, 2, 3, 4]);
 
-  array3.add(2);
+  // Aqui ocorre erro, pois um List unmodifiable não pode ser modificado pelos métodos da classe.
+  //array2.add(1);
 
-  // construtores baseado em outro Array
-  List x = ['Z'];
-  Iterable<int> elements = {1,2,3,4};
-  List array4 =  List.of(elements);
-  array4 = ['a', 'b'];
+  print(array2);
 
-  // Preenchimento
-  List arr = [1, 2, 3];
-  List array5 = List.filled(
-    10, arr // ou coloca algum número, string tanto faz
-  );
+  //
+  List<int> array3 = new List();
+  array3.insertAll(0, [1, 2, 3, 4, 5]);
 
-  // Geradores
-  List array6 = List.generate(10, (int index) => index + 1);
+  print(array3);
 
+  final arrayExemplo1 =
+      List.from(array3); // a partir dos elementos, transformando em dinâmicos.
+  final arrayExemplo2 = List.of(array3); // é todo conjunto, herdando Tipagem.
+
+  print(arrayExemplo1);
+  print(arrayExemplo2);
+
+  // Construtores geradores - preenchimento
+  List<int> array4 = List.filled(10, 1);
+
+  print(array4);
+
+  // Construtores geradores - gerador
+  List<int> array5 = List.generate(10, (int index) => index * 5);
+
+  print(array5);
 }
